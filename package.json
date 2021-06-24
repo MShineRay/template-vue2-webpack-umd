@@ -1,0 +1,68 @@
+{
+  "name": "template-vue2-webpack-umd",
+  "version": "1.0.0",
+  "templateName":"template-vue2-webpack-umd",
+  "templateVersion": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "vue-cli-service build --target lib --filename index --formats umd,umd-min ./src/main.js",
+    "build:development": "vue-cli-service build --mode development --target lib --filename index --formats umd,umd-min ./src/main.js",
+    "serve": "vue-cli-service serve --open",
+    "dev": "npm run serve",
+    "lint": "vue-cli-service lint --fix"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7",
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.6.4",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.6.0",
+    "@vue/cli-plugin-eslint": "^3.6.0",
+    "@vue/cli-service": "^3.6.0",
+    "babel-eslint": "^10.0.1",
+    "camelcase": "^5.3.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vconsole": "^3.4.1",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "iOS >= 7",
+    "Android >= 4.1",
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "Safari >= 5",
+    "ie >= 8"
+  ],
+  "gitHooks": {
+    "pre-commit": "npm run lint"
+  },
+  "engines": {
+    "node": ">=10.11.0 <11.0.0"
+  }
+}

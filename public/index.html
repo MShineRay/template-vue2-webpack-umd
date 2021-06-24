@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <title>模版--基于vue、webpack构建umd组件</title>
+  <script src="./currentScript.js"></script>
+  <script src="./flexible.js"></script>
+
+  <script src="./currentScript.js"></script>
+  <!--    <script crossorigin="anonymous" integrity="sha384-9u9lzb/hr8e14GLHe5TEOrTiH3Qtw5DX2Zw9X/g7cqj81W2McEMx5CKOszxdb8jg"
+      src="https://lib.baomitu.com/vue/2.6.10/vue.js"></script>-->
+  <!--
+  解决：Script error.问题。
+  场景：通过cdn引入vue.js时，使用手机浏览器访问本机本地调试时报错。
+  原因：产生 Script Error 的原因是因为请求了跨域资源(比如cdn), 可以灰度一部分用户, 直接使用主域而不是cdn上的js, 避免跨域问题。
+  参考：https://www.xuanfengge.com/javascript-error-script-error-the-solution.html
+  -->
+  <script src="vue.js"></script>
+  <script src="vue-router.js"></script>
+  <script crossorigin="anonymous" integrity="sha512-i48GtNrU5tVNKFkvIT3nArzgcIYGLxb0t6Ok+yu6yybHksvifmC+mmT2c3II7PZgUsA5sFnxROrkeM5Yt46g3A==" src="https://lib.baomitu.com/vuex/3.6.2/vuex.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  </style>
+</head>
+
+<body>
+<noscript>
+  <strong>We're sorry but unit-test-research doesn't work properly without JavaScript enabled. Please enable it to
+    continue.</strong>
+</noscript>
+<div id="app">
+  <router-view></router-view>
+</div>
+
+
+<script>
+  window.onload = function () {
+    var store = new Vuex.Store({
+      state: {
+
+      },
+      mutations: {
+
+      }
+    });
+
+
+    var test = Vue.component('<%= htmlWebpackPlugin.options.component %>')
+
+    var routes = [
+      {
+        path: '*',
+        redirect: '/test'
+      },
+      {
+        path: '/test',
+        component: test,
+        props: {
+          testData:' mock data'
+        }
+      }
+    ]
+
+    var router = new VueRouter({
+      routes: routes // (缩写) 相当于 routes: routes
+    })
+
+
+    new Vue({
+      store: store,
+      router: router,
+      components: {
+        test:test
+      },
+      methods: {
+        next() {
+        }
+      }
+    }).$mount('#app');
+  }
+</script>
+</body>
+
+</html>
