@@ -20,7 +20,7 @@ function isProd() {
 }
 
 module.exports = {
-  // publicPath: 'http://cdn.51talk.com/',
+  // publicPath: 'http://cdn.xxx.com/',
   productionSourceMap: false,
   // 非production包含运行时编译器
   transpileDependencies: [/ut-common/], //拼写全名@nat/ut-common并不进行打包，疑惑
