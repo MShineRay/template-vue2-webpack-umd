@@ -1,10 +1,16 @@
 <template>
-  <div class="app">模版--基于vue、webpack构建umd组件 {{ testData }}</div>
+  <div class="app">
+    模版--基于vue、webpack构建umd组件 {{ testData }}
+    <el-select name="" id=""></el-select>
+  </div>
 </template>
 
 <script>
+import select from '../element-ui/packages/select'
 export default {
-  components: {},
+  components: {
+    [select.name]: select,
+  },
   props: {
     testData: {
       type: String,
