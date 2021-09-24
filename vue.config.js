@@ -23,7 +23,7 @@ module.exports = {
   // publicPath: 'http://cdn.xxx.com/',
   productionSourceMap: false,
   // 非production包含运行时编译器
-  transpileDependencies: [/ut-common/], //拼写全名@nat/ut-common并不进行打包，疑惑
+  transpileDependencies: [/jquery/], //拼写全名jquery并不进行打包
   runtimeCompiler: !isProd(),
   css: { extract: false },
   chainWebpack: config => {
