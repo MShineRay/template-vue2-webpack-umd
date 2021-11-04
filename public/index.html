@@ -48,14 +48,14 @@
 
 <script>
   window.onload = function () {
-    var store = new Vuex.Store({
-      state: {
-
-      },
-      mutations: {
-
-      }
-    });
+    // var store = new Vuex.Store({
+    //   state: {
+    //
+    //   },
+    //   mutations: {
+    //
+    //   }
+    // });
 
 
     var test = Vue.component('<%= htmlWebpackPlugin.options.component %>')
@@ -63,14 +63,12 @@
     var routes = [
       {
         path: '*',
-        redirect: '/test'
+        component: test,//本地开发模式测试使用
+        // redirect: '/test'
       },
       {
         path: '/test',
-        component: test,
-        props: {
-          testData:' mock data'
-        }
+        component: window.templateVue2WebpackUmd//直接打开html，测试构建后的组件 http://localhost:63342/template-vue2-webpack-umd/public/index.html?#/test
       }
     ]
 
@@ -80,15 +78,8 @@
 
 
     new Vue({
-      store: store,
-      router: router,
-      components: {
-        test:test
-      },
-      methods: {
-        next() {
-        }
-      }
+      // store: store,
+      router: router
     }).$mount('#app');
   }
 </script>
