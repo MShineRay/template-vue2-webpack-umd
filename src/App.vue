@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     模版--基于vue、webpack构建umd组件
-<!--    <el-select name="" id=""></el-select>-->
+    <!--    <el-select name="" id=""></el-select>-->
   </div>
 </template>
 
